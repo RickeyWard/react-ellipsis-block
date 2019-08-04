@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import EllipsisBlock, {EllipsisBlockLazy} from 'react-ellipsis-block'
+import EllipsisBlock, {EllipsisBlockLazy, EllipsisBlockControlled} from 'react-ellipsis-block'
 
 export default class App extends Component {
   render () {
@@ -21,6 +21,13 @@ export default class App extends Component {
         {Array.from(Array(5)).map((v,idx)=>{
           const t = `${Math.random(10000)} Lazy ${exampleText}`;
           return (<EllipsisBlockLazy key={idx} title={t} renderAs="h4">{t}</EllipsisBlockLazy>)
+        })}
+        {/* controlled  */}
+        <EllipsisBlockControlled title="Controlled Ellipsis Block" renderAs="h1">Controlled Ellipsis Block</EllipsisBlockControlled>
+        <p>Controlled use block, Doesn't watch resize events. Renders title if title provided. Still adds ellipsis styles</p>
+        {Array.from(Array(5)).map((v,idx)=>{
+          const t = `${Math.random(10000)} Controlled ${exampleText}`;
+          return (<EllipsisBlockControlled key={idx} title={t} renderAs="h4">{t}</EllipsisBlockControlled>)
         })}
         <p>end</p>
       </div>

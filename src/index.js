@@ -46,6 +46,15 @@ export function EllipsisBlockLazy(props) {
   );
 }
 
+export function EllipsisBlockControlled(props) {
+  const $rendercomp = props.renderAs || "div";
+  return (
+    <$rendercomp className={styles.ellipsis} title={props.title ? props.title : null}>
+      {props.children}
+    </$rendercomp>
+  );
+}
+
 EllipsisBlock.propTypes = {
   title: PropTypes.string
 };
