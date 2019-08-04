@@ -6,6 +6,8 @@
 
 ## Install
 
+Depends on ReactHooks, react 16.8+ 
+
 ```bash
 npm install --save react-ellipsis-block
 ```
@@ -15,7 +17,7 @@ npm install --save react-ellipsis-block
 ```jsx
 import React, { Component } from 'react'
 
-import EllipsisBlock from 'react-ellipsis-block'
+import EllipsisBlock, {EllipsisBlockLazy} from 'react-ellipsis-block'
 
 class Example extends Component {
   render () {
@@ -32,6 +34,13 @@ class Example extends Component {
       >
         {longTitleThatMightEllipse}
       </EllipsisBlock>
+
+      /* Lazy use block, uses a single resize event, and waits for window resizing to settle before setting state on the react components, This is better for longer lists of ellipsis elements, but extra overhead for one offs or just a few on a page. */
+      <EllipsisBlockLazy
+        title={longTitleThatMightEllipse}
+      >
+        {longTitleThatMightEllipse}
+      </EllipsisBlockLazy>
       
     )
   }
