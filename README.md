@@ -53,3 +53,12 @@ class Example extends Component {
 ## License
 
 MIT © [rickeyward](https://github.com/rickeyward)
+
+## contributing
+
+Using `create-react-library` with hooks causes a weird issue running the example and the library at the same time, you may need to run 
+
+```bash
+npm link example/node_modules/react
+```
+if you get an "using react hooks" error. due to reason on the list.
