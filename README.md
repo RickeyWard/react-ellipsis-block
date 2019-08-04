@@ -4,6 +4,9 @@
 
 [![NPM](https://img.shields.io/npm/v/react-ellipsis-block.svg)](https://www.npmjs.com/package/react-ellipsis-block) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+## Demo
+[Live Demo](https://rickeyward.github.io/react-ellipsis-block/)
+
 ## Install
 
 Depends on ReactHooks, react 16.8+ 
