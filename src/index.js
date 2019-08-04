@@ -5,17 +5,16 @@ import { useLazyWindowWidth, useWindowWidth } from './resizeWatcher';
 
 export function EllipsisBlock(props) {
   const [ellipsed, setEllipsed] = useState(false);
-  // const windowWidth = useLazyWindowWidth();
   const windowWidth = useWindowWidth(0);
 
   const measuredRef = useCallback(node => {
     if (node !== null) {
-      if (node.offsetWidth < node.scrollWidth)
+      if (node.offsetWidth < node.scrollWidth && windowWidth)//windowWidth just so react warning goes away
         setEllipsed(true);
       else
         setEllipsed(false);
     }
-  }, [windowWidth]);
+  }, [windowWidth, setEllipsed]); //warnings when setEllipsed is not here
 
   const $rendercomp = props.renderAs || "div";
   return (
@@ -25,18 +24,19 @@ export function EllipsisBlock(props) {
   );
 }
 
+//react hooks can't be in conditions, so dupes dupes
 export function EllipsisBlockLazy(props) {
   const [ellipsed, setEllipsed] = useState(false);
   const windowWidth = useLazyWindowWidth();
 
   const measuredRef = useCallback(node => {
     if (node !== null) {
-      if (node.offsetWidth < node.scrollWidth)
+      if (node.offsetWidth < node.scrollWidth && windowWidth) //windowWidth just so react warning goes away
         setEllipsed(true);
       else
         setEllipsed(false);
     }
-  }, [windowWidth]);
+  }, [windowWidth, setEllipsed]);
 
   const $rendercomp = props.renderAs || "div";
   return (

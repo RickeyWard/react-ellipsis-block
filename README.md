@@ -56,9 +56,9 @@ MIT © [rickeyward](https://github.com/rickeyward)
 
 ## contributing
 
-Using `create-react-library` with hooks causes a weird issue running the example and the library at the same time, you may need to run 
+Using `create-react-library` with hooks causes a weird issue running the example and the library at the same time, it makes you have 2 reacts, somehow. you *MAY* need to run 
 
 ```bash
 npm link example/node_modules/react
 ```
-if you get an "using react hooks" error. due to reason on the list.
+if you get an "using react hooks" error. due to reason on the list. Though I think this is fixed by asking the exaple to use the parent folder's node module, though this requires that the root npm install has already been ran before running example npm install.

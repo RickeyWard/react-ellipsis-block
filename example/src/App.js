@@ -6,6 +6,7 @@ export default class App extends Component {
     const exampleText = "This is a long text that could be ellipsed";
     return (
       <div>
+        <h1>react-ellipsis-block Demo</h1>
         <p>Resize window small to cause ellipsis to happen, hover over ellipsed text for title expansion</p>
         
         <EllipsisBlock title="Standard Ellipsis Block" renderAs="h1">Standard Ellipsis Block</EllipsisBlock>

@@ -54,7 +54,7 @@ export function useLazyWindowWidth() {
     useEffect(() => {
         const unsubscribeFunct = subscribe((newWidth) => setWidth(newWidth));
         return unsubscribeFunct;
-    }, []);//[] is important, only do this on mount.
+    }, [setWidth]);//[] is important, only do this on mount.
     return width;
 }
 
@@ -65,6 +65,6 @@ export function useWindowWidth() {
         const handleResize = () => setWidth(window.innerWidth);
         window.addEventListener('resize', handleResize);
         return () => { window.removeEventListener('resize', handleResize); }
-    }, []);
+    }, [setWidth]);
     return width;
 }
