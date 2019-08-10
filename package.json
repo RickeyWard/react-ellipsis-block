@@ -1,6 +1,6 @@
 {
   "name": "react-ellipsis-block",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "react element for ellipsis overflow that provides a title or tooltip only when hovered.",
   "author": "rickeyward",
   "license": "MIT",
