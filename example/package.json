@@ -5,11 +5,13 @@
   "license": "MIT",
   "private": true,
   "dependencies": {
+    "prismjs": "^1.17.1",
     "prop-types": "^15.6.2",
-    "react-scripts": "^1.1.4",
-    "react-ellipsis-block": "file:..",
+    "re-resizable": "^5.0.1",
     "react": "file:../node_modules/react",
-    "react-dom": "file:../node_modules/react-dom"
+    "react-dom": "file:../node_modules/react-dom",
+    "react-ellipsis-block": "file:..",
+    "react-scripts": "^1.1.4"
   },
   "scripts": {
     "start": "react-scripts start",

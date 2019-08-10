@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react'
 
+//Holds our lazy listeners
 let listeners = {};
+//only attach the window event once,
+//delay it until first subscribe.
+let WindowEventAttached = false;
 
 //create ids 
 let lastNowTime = Date.now();
@@ -17,6 +21,11 @@ function getLocallyUniqueID() {
 //adds subsciber returns unsubscribe function
 export function subscribe(setCallback) {
     if (!setCallback) return;
+    if(!WindowEventAttached) {
+        window.addEventListener('resize', handleResize);
+        WindowEventAttached = true;
+    }
+
     const hash = getLocallyUniqueID();
     listeners[hash] = setCallback;
     return () => { delete listeners[hash] };
@@ -43,11 +52,6 @@ const handleResize = () => {
         // console.log("resize reconciled for " + Object.keys(listeners).length);
     }, settleTime);
 }
-
-//the overhead of checking of enableing and disabling this dynamically
-//was more than just always creating it once, and not using it if we don't
-//need it.
-window.addEventListener('resize', handleResize);
 
 export function useLazyWindowWidth() {
     const [width, setWidth] = useState(window.innerHeight);

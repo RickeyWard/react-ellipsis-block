@@ -6,15 +6,16 @@ import { useLazyWindowWidth, useWindowWidth } from './resizeWatcher';
 export function EllipsisBlock(props) {
   const [ellipsed, setEllipsed] = useState(false);
   const windowWidth = useWindowWidth(0);
+  let {width}=props;
 
   const measuredRef = useCallback(node => {
     if (node !== null) {
-      if (node.offsetWidth < node.scrollWidth && windowWidth)//windowWidth just so react warning goes away
+      if (node.offsetWidth < node.scrollWidth && (windowWidth || width))//windowWidth just so react warning goes away
         setEllipsed(true);
       else
         setEllipsed(false);
     }
-  }, [windowWidth, setEllipsed]); //warnings when setEllipsed is not here
+  }, [windowWidth, setEllipsed, width]); //warnings when setEllipsed is not here
 
   const $rendercomp = props.renderAs || "div";
   return (
@@ -28,15 +29,16 @@ export function EllipsisBlock(props) {
 export function EllipsisBlockLazy(props) {
   const [ellipsed, setEllipsed] = useState(false);
   const windowWidth = useLazyWindowWidth();
-
+  let {width}=props;
+  
   const measuredRef = useCallback(node => {
     if (node !== null) {
-      if (node.offsetWidth < node.scrollWidth && windowWidth) //windowWidth just so react warning goes away
+      if (node.offsetWidth < node.scrollWidth && (windowWidth || width)) //windowWidth just so react warning goes away
         setEllipsed(true);
       else
         setEllipsed(false);
     }
-  }, [windowWidth, setEllipsed]);
+  }, [windowWidth, setEllipsed, width]);
 
   const $rendercomp = props.renderAs || "div";
   return (
